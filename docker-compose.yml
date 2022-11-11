@@ -1,0 +1,15 @@
+---
+version: '3'
+
+services:
+  pcluster:
+    container_name: pcluster
+    build:
+      context: .
+    image: dceoy/pcluster:latest
+    volumes:
+      - ${PWD}:/wd
+      - ${HOME}/.aws:/root/.aws:ro
+    working_dir: /wd
+    entrypoint:
+      - /usr/local/bin/pcluster
