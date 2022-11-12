@@ -6,7 +6,10 @@ services:
     container_name: pcluster
     build:
       context: .
+      dockerfile: Dockerfile
     image: dceoy/pcluster:latest
+    user: ${UID}:${GID}
+    userns_mode: host
     volumes:
       - ${PWD}:/wd
       - ${HOME}/.aws:/root/.aws:ro
